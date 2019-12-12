@@ -1,0 +1,213 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="addbg">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>phpcms V9 - 后台管理中心</title>
+<link href="http://localhost:8082/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8082/statics/css/zh-cn-system.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8082/statics/css/table_form.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8082/statics/css/dialog.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="http://localhost:8082/statics/js/dialog.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://localhost:8082/statics/css/style/zh-cn-styles1.css" title="styles1" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="http://localhost:8082/statics/css/style/zh-cn-styles2.css" title="styles2" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="http://localhost:8082/statics/css/style/zh-cn-styles3.css" title="styles3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="http://localhost:8082/statics/css/style/zh-cn-styles4.css" title="styles4" media="screen" />
+<script language="javascript" type="text/javascript" src="http://localhost:8082/statics/js/jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:8082/statics/js/admin_common.js"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:8082/statics/js/styleswitch.js"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:8082/statics/js/jquery.validate.min.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="utf-8" src="http://localhost:8082/statics/js/ueditor/ueditor.config.js"></script><script type="text/javascript" charset="utf-8" src="http://localhost:8082/statics/js/ueditor/ueditor.all.min.js"> </script>
+
+
+
+</head>
+<body>
+<form name="myform" id="myform" action="?m=content&c=content&a=add" method="post" enctype="multipart/form-data">
+<div class="addContent">
+<div class="crumbs">当前位置：内容  > 内容发布管理 > 添加内容</div>
+<div class="col-right">
+    	<div class="col-1">
+        	<div class="content pad-6">
+	<h6> 缩略图</h6>
+	 <script type="text/javascript" src="http://localhost:8082/statics/js/webuploader/swf2ueditor.js"></script><div class='upload-pic img-wrap'><input type='hidden' name='info[thumb]' id='thumb' value=''>
+			<a href='javascript:void(0);' onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,0','content','4','93910991a5e2dafa70458170c71909bc');return false;">
+			<img src='http://localhost:8082/statics/images/icon/upload-pic.png' id='thumb_preview' width='135' height='113' style='cursor:hand' /></a><input type="button" style="width: 66px;" class="button" onclick="$('#thumb_preview').attr('src','http://localhost:8082/statics/images/icon/upload-pic.png');$('#thumb').val(' ');return false;" value="取消图片"></div> 
+	<h6> 发布时间</h6>
+	 <link rel="stylesheet" type="text/css" href="http://localhost:8082/statics/js/calendar/jscal2.css"/>
+			<link rel="stylesheet" type="text/css" href="http://localhost:8082/statics/js/calendar/border-radius.css"/>
+			<link rel="stylesheet" type="text/css" href="http://localhost:8082/statics/js/calendar/win2k.css"/>
+			<script type="text/javascript" src="http://localhost:8082/statics/js/calendar/calendar.js"></script>
+			<script type="text/javascript" src="http://localhost:8082/statics/js/calendar/lang/en.js"></script><input type="text" name="info[inputtime]" id="inputtime" value="2019-08-25 17:30:02" size="21" class="date" readonly>&nbsp;<script type="text/javascript">
+			Calendar.setup({
+			weekNumbers: true,
+		    inputField : "inputtime",
+		    trigger    : "inputtime",
+		    dateFormat: "%Y-%m-%d %H:%M:%S",
+		    showTime: true,
+		    minuteStep: 1,
+		    onSelect   : function() {this.hide();}
+			});
+        </script> 
+	<h6> 内容页模板</h6>
+	 <select name="info[template]" id="template"><option value='' selected>请选择</option><option value="show" >文章内容页(show.html)</option><option value="show_case" >案例内容页(show_case.html)</option><option value="show_picture" >图片内容页(show_picture.html)</option></select> 
+
+<h6>状态</h6>
+<span class="ib" style="width:90px"><label><input type="radio" name="info[status]" value="99" checked/> 发布 </label></span>
+<label><input type="radio" name="info[status]" value="1" > 隐藏 </label>
+
+          </div>
+        </div>
+    </div>
+    <a title="展开与关闭" class="r-close" hidefocus="hidefocus" style="outline-style: none; outline-width: medium;" id="RopenClose" href="javascript:;"><span class="hidden">展开</span></a>
+    <div class="col-auto">
+    	<div class="col-1">
+        	<div class="content pad-6">
+<table width="100%" cellspacing="0" class="table_form">
+	<tbody>	
+	<tr>
+      <th width="80"> <font color="red">*</font> 栏目	  </th>
+      <td><input type="hidden" name="info[catid]" value="4">新闻中心 <a href='javascript:;' onclick="omnipotent('selectid','?m=content&c=content&a=add_othors&siteid=1','同时发布到其他栏目',1);return false;" style='color:#B5BFBB'>[同时发布到其他栏目]</a><ul class='list-dot-othors' id='add_othors_text'></ul>  </td>
+    </tr>
+	<tr>
+      <th width="80"> <font color="red">*</font> 标题	  </th>
+      <td><input type="text" style="width:400px;" name="info[title]" id="title" value="" style="color:" class="measure-input " onkeyup="strlen_verify(this, 'title_len', 80);" required/><input type="hidden" name="style_color" id="style_color" value="">
+		<input type="hidden" name="style_font_weight" id="style_font_weight" value=""><input type="button" class="button" id="check_title_alt" value="检测重复" onclick="$.get('?m=content&c=content&a=public_check_title&catid=4&sid='+Math.random()*5, {data:$('#title').val()}, function(data){if(data=='1') {$('#check_title_alt').val('标题重复');$('#check_title_alt').css('background-color','#DB0000');} else if(data=='0') {$('#check_title_alt').val('标题不重复');$('#check_title_alt').css('background-color','#ff9900')}})" style="width:73px;"/><img src="http://localhost:8082/statics/images/icon/colour.png" width="15" height="16" onclick="colorpicker('title_colorpanel','set_title_color');" style="cursor:hand"/> 
+		<img src="http://localhost:8082/statics/images/icon/bold.png" width="10" height="10" onclick="input_font_bold()" style="cursor:hand"/> <span id="title_colorpanel" style="position:absolute;" class="colorpanel"></span>还可输入<B><span id="title_len">80</span></B> 个字符  </td>
+    </tr>
+	<tr>
+      <th width="80"> 关键词	  </th>
+      <td><input type="text" name="info[keywords]" id="keywords" size="50" value="" class="input-text"  >  多关键词之间用空格或者","隔开</td>
+    </tr>
+	<tr>
+      <th width="80"> 摘要	  </th>
+      <td><textarea name='info[description]' id='description' style='width:98%;height:46px;'   onkeyup="strlen_verify(this, 'description_len', 255)"></textarea>还可输入<B><span id="description_len">255</span></B> 个字符  </td>
+    </tr>
+	<tr>
+      <th width="80"> <font color="red">*</font> 内容	  </th>
+      <td><div id='content_tip'></div><script name="info[content]" id="content" type="text/plain">&lt;p&gt;第三方是的发生的丰盛的发&lt;/p&gt;</script><script type="text/javascript" charset="utf-8" src="http://localhost:8082/statics/js/ueditor/ueditor.config.js"></script><script type="text/javascript" charset="utf-8" src="http://localhost:8082/statics/js/ueditor/ueditor.all.min.js"> </script><script type="text/javascript">var ue = UE.getEditor("content",{initialFrameWidth :"100%",initialFrameHeight:"300",scaleEnabled:true});
+		        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+                UE.Editor.prototype.getActionUrl = function(action) {
+                if (action == 'uploadimage' || action == 'uploadfile' || action == 'uploadvideo') {
+                    return '/index.php?m=attachment&c=attachments&a=upload&module=content&catid=4&dosubmit=1';
+                } else if (action == 'listimage') {
+                    return '/index.php?m=attachment&c=attachments&a=album_load_ajax&action=listimage';
+                } else if (action == 'listfile') {
+                    return '/index.php?m=attachment&c=attachments&a=album_load_ajax&action=listfile';
+                } else {
+                    return this._bkGetActionUrl.call(this, action);
+                }
+            }</script>  <div class="content_attr"><label><input name="add_introduce" type="checkbox"  value="1" checked>是否截取内容</label><input type="text" name="introcude_length" value="200" size="3">字符至内容摘要
+<label><input type='checkbox' name='auto_thumb' value="1" checked>是否获取内容第</label><input type="text" name="auto_thumb_no" value="1" size="2" class="">张图片作为标题图片
+</div></td>
+    </tr>
+	<tr>
+      <th width="80"> 分页方式	  </th>
+      <td><select name="info[paginationtype]" id="paginationtype" onchange="if(this.value==1)$('#paginationtype1').css('display','');else $('#paginationtype1').css('display','none');">
+                <option value="0">不分页</option>
+                <option value="1">自动分页</option>
+                <option value="2">手动分页</option>
+            </select>
+			<span id="paginationtype1" style="display:none"><input name="info[maxcharperpage]" type="text" id="maxcharperpage" value="10000" size="8" maxlength="8">字符数（包含HTML标记）</span>  </td>
+    </tr>
+	<tr>
+      <th width="80"> 推荐位	  </th>
+      <td><input type='hidden' name='info[posids][]' value='-1'><label class="ib" style="width:125px"><input type="checkbox" name='info[posids][]' id="_1"  value="1"> 首页推荐</label>  </td>
+    </tr>
+	<tr>
+      <th width="80"> 转向链接	  </th>
+      <td><input type="hidden" name="info[islink]" value="0"><input type="text" name="linkurl" id="linkurl" value="" size="25" maxlength="255" disabled class="input-text"> <input name="info[islink]" type="checkbox" id="islink" value="1" onclick="ruselinkurl();" > <font color="red">转向链接</font>  </td>
+    </tr>
+
+    </tbody></table>
+                </div>
+        	</div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="fixed-bottom">
+	<div class="fixed-but text-c">
+    <div class="button"><input value="保存后自动关闭" type="submit" name="dosubmit" class="cu" style="width:145px;"></div>
+    <div class="button"><input value="保存并继续发表" type="submit" name="dosubmit_continue" class="cu" style="width:130px;" title="Alt+X" onclick="refersh_window()"></div>
+    <div class="button"><input value="关闭(X)" type="button" name="close" onclick="refersh_window();close_window();" class="cu" style="width:70px;"></div>
+      </div>
+</div>
+</form>
+
+</body>
+</html>
+<script type="text/javascript"> 
+<!--
+//只能放到最下面
+$(function(){
+
+	
+	//验证公共配置
+	$.validator.setDefaults({
+		onkeyup:false,
+		focusInvalid:false,
+		errorPlacement: function(error, element) { 
+		     console.log(error.html()); 
+             window.top.art.dialog({id:'check_content_id',content:error.html(),lock:true,width:'200',height:'50'}, 	function(){});
+        },
+		onfocusout:false
+	});
+	
+	var validator = $("#myform").submit(function() {
+		ue.sync();
+	}).validate({
+				ignore: "",
+				rules: {
+					'info[title]':{required:true},
+					'info[content]':{required:true},
+				},
+				messages:{
+			'info[title]':{
+				required:'请输入标题',
+			},
+			'info[content]':{
+				required:'请输入内容',
+			},
+		},
+				
+			});
+	validator.focusInvalid = function() {
+		if( this.settings.focusInvalid ) {
+			try {
+				var toFocus = $(this.findLastActive() || this.errorList.length && this.errorList[0].element || []);
+				if (toFocus.is("textarea")) {
+					UE.getEditor('content').focus()
+				} else {
+					toFocus.filter(":visible").focus();
+				}
+			} catch(e) {
+			}
+		}
+	}
+	/*用户注册*/
+	$("#myform2").validate({
+		rules:{
+			'info[title]':{required:true},
+			'info[content]':{required:true},
+		},
+		messages:{
+			'info[title]':{
+				required:'请输入真实姓名',
+			},
+			'info[content]':{
+				required:'请输入公司名称',
+			},
+		},
+		submitHandler:function(form){
+			alert('sdsdfsdfdfs');
+		}
+	});
+	
+
+})
+
+//-->
+</script>
